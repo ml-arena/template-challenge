@@ -1,0 +1,28 @@
+name: Push challenge to ML-Arena
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["README.md", "LICENSE", "test_local.py", ".gitignore"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate and report, change nothing
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write   # the job proves its identity to ML-Arena: no secret to store
+  contents: read
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 test_local.py
+      - uses: ml-arena/mlarena-action@v1
+        with:
+          command: challenge-push
+          challenge: your-challenge-slug   # ml-arena.com/challenges/<slug>
+          dry-run: ${{ inputs.dry_run || false }}

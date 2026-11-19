@@ -1,0 +1,26 @@
+"""Score the sample submission with env.py, as the platform does. No install needed.
+
+    python test_local.py
+"""
+import pathlib
+
+from env import Env
+
+HERE = pathlib.Path(__file__).resolve().parent
+
+
+def main():
+    result = Env().evaluate(str(HERE / "sample_submission.csv"))
+    row = result["agent_results"][0]
+    assert not row.get("is_agent_code_error"), row
+    assert 0 < row["score"] < 10, row
+    print(row["info_message"])
+
+    # A file in the wrong shape is reported to the participant, not raised.
+    bad = Env().evaluate(str(HERE / "overview.md"))
+    assert bad["agent_results"][0]["is_agent_code_error"], bad
+    print("wrong-shape submission:", bad["agent_results"][0]["agent_code_error_message"])
+
+
+if __name__ == "__main__":
+    main()

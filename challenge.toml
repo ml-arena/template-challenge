@@ -1,0 +1,15 @@
+#:schema https://ml-arena.com/api/creator_challenge/config_schema.json
+# The challenge's config. A key written here is owned by this file (read-only in
+# the console); a key left out stays the console's, or its default.
+
+# The one file a participant uploads.
+submission_filename = "submission.csv"
+# env.py scores against it: the challenge cannot start until it is in the repository.
+required_files = ["y_test.csv"]
+# The leaderboard: env.py's score is an RMSE, the smallest ranks first.
+metrics = [
+  { key = "rmse", label = "RMSE", source = "score", order = "asc", precision = 2, is_ranking = true },
+]
+# 40 rows to score: a run takes seconds.
+simulation_timeout_sec = 120
+max_active_submissions_per_participant = 5
