@@ -24,5 +24,5 @@ jobs:
       - uses: ml-arena/mlarena-action@v1
         with:
           command: challenge-push
-          challenge: your-challenge-slug   # ml-arena.com/challenges/<slug>
+          challenge: your-challenge-id   # the number in ml-arena.com/studio/challenges/<id>
           dry-run: ${{ inputs.dry_run || false }}

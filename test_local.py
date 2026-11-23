@@ -8,12 +8,17 @@ from env import Env
 
 HERE = pathlib.Path(__file__).resolve().parent
 
+# Change me with your data: the range sample_submission.csv must score in.
+# Here an RMSE between 0 and 10 (the sample scores about 5.4).
+EXPECTED_SCORE = (0, 10)
+
 
 def main():
     result = Env().evaluate(str(HERE / "sample_submission.csv"))
     row = result["agent_results"][0]
     assert not row.get("is_agent_code_error"), row
-    assert 0 < row["score"] < 10, row
+    low, high = EXPECTED_SCORE
+    assert low < row["score"] < high, f"sample score {row['score']} outside EXPECTED_SCORE {EXPECTED_SCORE}"
     print(row["info_message"])
 
     # A file in the wrong shape is reported to the participant, not raised.

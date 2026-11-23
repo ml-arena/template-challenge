@@ -32,4 +32,4 @@ $$
 $$
 
 **Lower is better**: the leaderboard puts the smallest RMSE first. Predicting the
-mean price for every house lands around 60; a reasonable model is under 10.
+mean price for every house lands around 110; a reasonable model is under 10.
