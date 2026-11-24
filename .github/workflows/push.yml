@@ -3,7 +3,9 @@ name: Push challenge to ML-Arena
 on:
   push:
     branches: [main]
-    paths-ignore: ["README.md", "LICENSE", "test_local.py", ".gitignore"]
+    # No path filter on purpose: GitHub skips a filtered workflow when a commit
+    # changes more than 300 files. A commit that changes nothing the challenge
+    # holds leaves it as it is.
   workflow_dispatch:
     inputs:
       dry_run:
