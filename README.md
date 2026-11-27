@@ -1,8 +1,13 @@
 # ML-Arena challenge template
 
-Keep an [ML-Arena](https://ml-arena.com) challenge in a GitHub repository: every
-commit on `main` is pushed to the platform. No API key, no secret in the
-repository.
+Keep an [ML-Arena](https://ml-arena.com) **challenge with no course** in a GitHub
+repository: every commit on `main` is pushed to the platform. No API key, no
+secret in the repository.
+
+> **A challenge of a course** is not pushed from here: it is a folder of its
+> course's repository, `challenges/<slug>/`, pushed with the course's key. Start
+> from [template-course](https://github.com/ml-arena/template-course), which holds
+> this same file challenge, or download your course from its Settings › GitHub.
 
 This template is a working **file challenge**: participants upload a
 `submission.csv` of house prices, `env.py` scores it by RMSE. Push it as it is
@@ -26,12 +31,10 @@ challenge under version control.
 
 ## Before you start
 
-- **Creator access.** Creating a challenge needs creator access on your
-  ML-Arena account today. In the Studio, **New** lists *Create a challenge*
-  with its kinds; if it says *Creating challenges is not open to your account
-  yet*, ask for access through [ml-arena.com/contact](https://ml-arena.com/contact).
-  (A course author without it can still add short-answer and multiple-choice
-  exercises to a course, from the course's **Content** tab.)
+- **A challenge with no course.** These are the challenges listed for everyone
+  (*Challenge for everyone* in the Studio's **New**), made by an admin for now.
+  A challenge you build for your class belongs to its course: use
+  [template-course](https://github.com/ml-arena/template-course).
 - **GitHub connected.** On ML-Arena, **Profile → GitHub → Connect GitHub**,
   once. A repository you do not own (an organisation's, a class repository)
   must also be added under **Profile → GitHub → Trusted repositories**.
@@ -39,7 +42,7 @@ challenge under version control.
 ## Set up (once)
 
 1. On GitHub, click **Use this template** and make the new repository private.
-2. In the [Studio](https://ml-arena.com/studio): **New → Create a challenge →
+2. In the [Studio](https://ml-arena.com/studio): **New → Challenge for everyone →
    Upload a file**, give it a name. You land on its workspace,
    `ml-arena.com/studio/challenges/<id>/overview`: note the **id**, the number
    in that address (also under **Settings → Code and automation → About**).
@@ -73,9 +76,9 @@ All in the challenge's Studio workspace:
    see them.
 4. **Overview.** The readiness checklist lists what still blocks **Start**,
    each item linked to where it is fixed. Click **Start**.
-5. **Settings → Visibility.** A challenge starts private. Share its link, make
-   it public, or add it to a course from the Studio's **New → Run a challenge
-   with my class**.
+5. **Settings → Visibility.** A challenge starts private. Share its link, or
+   publish it. A lesson of any course can link it with an `mlarena:challenge`
+   block.
 
 ## Make it yours
 

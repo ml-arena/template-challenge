@@ -19,6 +19,9 @@ permissions:
 
 jobs:
   push:
+    # Not on a template repository (ml-arena/template-* itself): only a
+    # repository made from it pushes.
+    if: ${{ !github.event.repository.is_template }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
